@@ -29,11 +29,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $num = mysqli_num_rows($result);
         if($num==1)
         {
-            $login = true;
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['temail'] = $email;
-            header("location: welcome.php");
+            // if ($role=="student") {
+                # code...
+                $login = true;
+                session_start();
+                $_SESSION['loggedin'] = true;
+                $_SESSION['temail'] = $email;
+                header("location: welcome.php");
+            // }
         }
         else{
             echo "Invalid User";
