@@ -1,3 +1,44 @@
+<?php
+// $servername = "localhost";
+// $username = "root";
+// $password = "cookie";
+// $database = "Project";
+// $conn = mysqli_connect($servername,$username,$password,$database);
+// if(!$conn)
+// {
+//     die(mysqli_connect_errno()."not connected");
+// }
+// else{
+//     echo "connected";
+// }
+
+include 'partials/dbconnect.php';
+// $Showalert = false;
+    $login = false;
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $role= $_POST['trole'];
+    // $name = $_POST['tname'];
+    $email = $_POST['temail'];
+    // $Uname = $_POST['tusername'];
+    $passcode = $_POST['tpassword'];
+    // $Vpasscode = $_POST['vpassword'];
+
+        $sql = "SELECT * FROM register where roles='$role' AND email='$email' AND Pass='$passcode'";
+        $result = mysqli_query($conn,$sql);
+        $num = mysqli_num_rows($result);
+        if($num==1)
+        {
+            $login = true;
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['temail'] = $email;
+            header("location: welcome.php");
+        }
+        else{
+            echo "Invalid User";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,18 +152,29 @@
 
     <div class="border">
 
-     <form action="/action_page.php" target="_blank">
+     <form action="login.php" method="post">
 
-        <select  class="padd botmar" name="role" id="role" >
+        <select  class="padd botmar" name="trole" id="role" >
           <option value="Select Role">Select Role</option>
           <option value="Admin">Admin</option>
           <option value="Company">Company</option>
           <option value="Student">Student</option>
         </select> 
-        <p><input  class="padd botmar" type="text" placeholder="Username" required name="Name"></p>
-        <p><input  class="padd botmar" type="password" placeholder="Password" required name="People"></p>
-        <p><button  class="padd" type="submit" >LOGIN</button></p>
+        <input  class="padd botmar" type="email" placeholder="Email" required name="temail">
+        <input  class="padd botmar" type="password" placeholder="Password" required name="tpassword">
+        <button  class="padd" type="submit" >LOGIN</button>
         
+        <?php
+        if($login)
+        {
+            echo '<h1>Login Successful</h1>';
+        }
+        else
+        {
+            echo '<h1>Wrong Password</h1>';
+        }
+        ?>
+
       </form>
 
     </div>
