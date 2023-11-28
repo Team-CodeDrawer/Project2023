@@ -1,9 +1,49 @@
+<?php
+// $servername = "localhost";
+// $username = "root";
+// $password = "cookie";
+// $database = "Project";
+// $conn = mysqli_connect($servername,$username,$password,$database);
+// if(!$conn)
+// {
+//     die(mysqli_connect_errno()."not connected");
+// }
+// else{
+//     echo "connected";
+// }
+
+include 'partials/dbconnect.php';
+$Showalert = false;
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $role= $_POST['trole'];
+    $name = $_POST['tname'];
+    $email = $_POST['temail'];
+    $Uname = $_POST['tusername'];
+    $passcode = $_POST['tpassword'];
+    $Vpasscode = $_POST['vpassword'];
+
+    $exists = false;
+    if (($passcode == $Vpasscode)) {
+        
+        // $sql = "CREATE TABLE register(roles text, Namee text, Email text, Uname text, Pass  text);";
+        $sql = "INSERT INTO register VALUES('$role','$name','$email','$Uname', '$passcode');";
+        $result = mysqli_query($conn,$sql);
+        if($result)
+        {
+            $Showalert = true;
+        }
+        else{
+            echo "Not done".mysqli_error($conn);
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
+    <title>register</title>
 
     <style>
         *{
@@ -55,13 +95,13 @@
             padding:10px;
             border: 1px solid black;
             border-radius: 5px;
-            
+            text-align: center;
         }
 
         .padd{
             padding: 16px;
             font-size: 20px;
-
+          
         }
 
         .botmar{
@@ -75,7 +115,9 @@
             color: white;
         }
 
-      
+        select{
+            width: 100%;
+        }
 
         input{
             width: 80%;
@@ -105,16 +147,36 @@
         </nav> 
     </div>
 
-    <h1>FEEDBACK</h1>
+    <h1>Register</h1>
 
     <div class="border">
 
-     <form action="/action_page.php" target="_blank">
+     <form action="register.php" method="post">
 
-        <p><input  class="padd botmar" type="email" placeholder="email" required name="email"></p>
-        <p><input  class="padd botmar" type="textarea" placeholder="Give Your Feedback Here" required name="Feedback"></p>
-        <p><button  class="padd" type="submit" >Submit</button></p>
+        <select  class="padd botmar" name="trole" id="trole" >
+          <option value="Select Role">Select Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Company">Company</option>
+          <option value="Student">Student</option>
+        </select> 
+        <input  class="padd botmar" type="text" placeholder="Your Name" required name="tname" id="tname">
+        <input  class="padd botmar" type="email" placeholder="email" required name="temail" id="temail" >
+        <input  class="padd botmar" type="text" placeholder="Username" required name="tusername" id="tusername" >
+        <input  class="padd botmar" type="password" placeholder="Password" required name="tpassword" id="tpassword" >
+        <input  class="padd botmar" type="password" placeholder="Verify Password" required name="vpassword" id="vpassword">
+        <!-- <p><button  class="padd" type="submit" >REGISTER</button></p> -->
+        <input type="submit" value="submit"> 
         
+        <?php
+        if($Showalert)
+        {
+            echo '<h1>Registration Successful</h1>';
+        }
+        else
+        {
+            echo '<h1>Enter the same Password</h1>';
+        }
+        ?>
       </form>
 
     </div>

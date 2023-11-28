@@ -65,24 +65,23 @@
     <div class="imgcont">
         <nav  style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
 
-            <a class="MenuItem" href="javascript:void(0)" onclick="closeSidebar()">Close Menu</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/home.html" onclick="closeSidebar()">Home</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/about.html" onclick="closeSidebar()">About us</a>
-            <a class="MenuItem" href="#allCompany" onclick="closeSidebar()">All Company</a>
-            <a class="MenuItem" href="#jobDetail" onclick="closeSidebar()">Job detail</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/login.html" onclick="closeSidebar()">Login</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/register.html" onclick="closeSidebar()">Register</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/feedback.html" onclick="closeSidebar()">Feedack</a>
+            <a class="MenuItem" href="javascript:void(0)">Close Menu</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/home.php">Home</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/about.php">About us</a>
+            <a class="MenuItem" href="#allCompany">All Company</a>
+            <a class="MenuItem" href="#jobDetail">Job detail</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/login.php">Login</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/register.php">Register</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/feedback.php">Feedack</a>
         
         </nav>
-        <img class="bgimg" src="mmdu.jpg" alt="Placement" >
+        <img class="bgimg" src="mmdu.jpg" alt="Placement">
     </div>
 
     <br> <br>
 
     <div class="links">
        <p>
-        
         Contact:+91 1234567890 <br>
         email: abcd@gmail.com <br>
         address:MMDU Mullana, Haryana <br>
