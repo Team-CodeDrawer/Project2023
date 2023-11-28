@@ -11,5 +11,4 @@ if(!$conn)
 else{
     echo "connected";
 }
-
 ?>

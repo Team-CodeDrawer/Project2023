@@ -22,18 +22,30 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $passcode = $_POST['tpassword'];
     $Vpasscode = $_POST['vpassword'];
 
-    $exists = false;
-    if (($passcode == $Vpasscode)) {
-        
-        // $sql = "CREATE TABLE register(roles text, Namee text, Email text, Uname text, Pass  text);";
-        $sql = "INSERT INTO register VALUES('$role','$name','$email','$Uname', '$passcode');";
-        $result = mysqli_query($conn,$sql);
-        if($result)
-        {
-            $Showalert = true;
-        }
-        else{
-            echo "Not done".mysqli_error($conn);
+    // $exists = false;
+    $ShowError = true;
+    $existSql = "SELECT * FROM register WHERE Email = '$email'";
+    $result = mysqli_query($conn,$existSql);
+    $numExistRow = mysqli_num_rows($result);
+    if($numExistRow > 0)
+    {
+        // $ShowError = false;
+        echo "Email already exists.";
+    }
+    else{
+
+        if (($passcode == $Vpasscode)) {
+            
+            // $sql = "CREATE TABLE register(roles text, Namee text, Email text, Uname text, Pass  text);";
+            $sql = "INSERT INTO register VALUES('$role','$name','$email','$Uname', '$passcode');";
+            $result = mysqli_query($conn,$sql);
+            if($result)
+            {
+                $Showalert = true;
+            }
+            else{
+                echo "Not done".mysqli_error($conn);
+            }
         }
     }
 }
@@ -52,7 +64,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         .test{
             background-color: rgb(204, 0, 0);
             padding: 5px;
-            border: 10px solidr rgb(204, 0, 0);
+            border: 10px solid rgb(204, 0, 0);
             
             padding: 5px;
             font-size: 25px;
@@ -152,7 +164,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <div class="border">
 
      <form action="register.php" method="post">
-
         <select  class="padd botmar" name="trole" id="trole" >
           <option value="Select Role">Select Role</option>
           <option value="Admin">Admin</option>
@@ -176,6 +187,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         {
             echo '<h1>Enter the same Password</h1>';
         }
+        // if($ShowError)
+        // {
+        //     echo '<h1>Email already Exists</h1>';
+        // }
+        // else
+        // {
+        //     echo '<h1>Enter the same Password</h1>';
+        // }
         ?>
       </form>
 
