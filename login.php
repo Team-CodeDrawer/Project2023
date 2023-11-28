@@ -25,6 +25,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         $sql = "SELECT * FROM register where roles='$role' AND email='$email' AND Pass='$passcode'";
         $result = mysqli_query($conn,$sql);
+        // $num = 0;
         $num = mysqli_num_rows($result);
         if($num==1)
         {
@@ -169,10 +170,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         {
             echo '<h1>Login Successful</h1>';
         }
-        else
-        {
-            echo '<h1>Wrong Password</h1>';
-        }
+        // else
+        // {
+        //     echo '<h1>Wrong Password</h1>';
+        // }
         ?>
 
       </form>
