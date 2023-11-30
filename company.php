@@ -1,43 +1,22 @@
 <?php
 include 'partials/dbconnect.php';
-    $login = false;
-    $invalidUser = false;
-if($_SERVER['REQUEST_METHOD']=='POST'){
-    $role= $_POST['trole'];
-    $email = $_POST['temail'];
-    $passcode = $_POST['tpassword'];
 
-        $sql = "SELECT * FROM register where roles='$role' AND email='$email' AND Pass='$passcode'";
-        $result = mysqli_query($conn,$sql);
-        // $num = 0;
-        $num = mysqli_num_rows($result);
-        if($num==1)
-        {
-            // if ($role=="student") {
-                # code...
-                $login = true;
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['temail'] = $email;
-                header("location: welcome.php");
-            // }
-        }
-        else{
-            $invalidUser = true;
-        }
-    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>About</title>
+
     <style>
         *{
             margin: 0px;
+        }
+        .container{
+            margin: auto;
+            padding-left: 300px;
         }
         .test{
             background-color: rgb(204, 0, 0);
@@ -62,6 +41,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             display: flex;
         }
         
+      
 
         .links{
             width: 30%;
@@ -79,40 +59,61 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             padding:10px;
         }
 
-        
+        p{
+            padding:10px;
+            font-size: 20px;
+        }
+
         .border{
             margin: 10px;
             padding:10px;
             border: 1px solid black;
             border-radius: 5px;
-            
         }
 
-        .padd{
-            padding: 16px;
-            font-size: 20px;
+        table{
+        margin-left: 10PX;
+        border: 2px solid gray;
+        width: 100%;
+    }
 
-        }
+    .gray{
+        border:  2px solid gray;
+    }
 
-        .botmar{
-            margin-bottom: 16px;
-        }
+    .none{
+        border:  none;
+        
+    }
+  
+    table,td{
+        border-collapse: collapse;
+    }
 
-        button{
-            width: 100%;
-            background-color: rgb(204, 0, 0);
-            border: none;
-            color: white;
-        }
+    .fit{
+        width: 20%;
+    }
 
-        select{
-            width: 100%;
-        }
+    .pad{
+        padding-left: 20px;
+    
+    }
 
-        input{
-            width: 80%;
-        }
-      
+   
+    button{
+        float: left;
+        margin-right: 5px;
+        background: rgb(118, 185, 240);
+        color: white;
+        width: 100px;
+        height: 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border-color: rgb(118, 185, 240) ;
+        margin-bottom:5px;
+      }
+
     </style>
 </head>
 
@@ -133,49 +134,57 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             <a class="MenuItem" href="#jobDetail" onclick="closeSidebar()">Job detail</a>
             <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/login.html" onclick="closeSidebar()">Login</a>
             <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/register.html" onclick="closeSidebar()">Register</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/feedback.html" onclick="closeSidebar()">Feedack</a> 
-        </nav> 
-    </div>
-    <?php
-        if($login)
-        {
-            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Congrats!!</strong> Login Successful.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>';
-        }
-        if ($invalidUser) {
-            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Invalid User.</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>';
-        }
-        ?>
-    <h1>LOGIN</h1>
-
-    <div class="border">
-
-     <form action="login.php" method="post">
-
-        <select  class="padd botmar" name="trole" id="role" >
-          <option value="Select Role">Select Role</option>
-          <option value="Admin">Admin</option>
-          <option value="Company">Company</option>
-          <option value="Student">Student</option>
-        </select> 
-        <input  class="padd botmar" type="email" placeholder="Email" required name="temail">
-        <input  class="padd botmar" type="password" placeholder="Password" required name="tpassword">
-        <button  class="padd" type="submit" >LOGIN</button>
+            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/feedback.html" onclick="closeSidebar()">Feedack</a>
         
-        
+        </nav>
 
-      </form>
+        <div>
+            <div class="container" >
+              <h1>COMPANY DETAIL</h1>
+              <table>
+     
+                <!--1-->
+                <tr>
+                    <td class="fit gray"  rowspan="5">
+                        <img src="C:\Users\HP\Pictures\Saved Pictures\info.png" alt="Infosys">
+                    </td>
+            
+                    <td class="pad none"><p style="font-size: 30px;"><b>INFOSYS</b></p></td>
+                </tr>
+            
+                <tr>
+                    <td class="pad none"><p>138, Old Mahabalipuram Road,
+                        Sholinganallur, Chennai,
+                        Tamil Nadu – 600119.</p></td>
+                </tr>
+            
+                <tr>
+                    <td class="pad none"><p>Phone +91 44 2450 9530/9540</p></td>
+                </tr>
+            
+                <tr>
+                    <td class="pad none"><p>Email: foundation@infosys.com</p></td>
+                </tr>
+            
+                <tr>
+                    <td class="pad none">  <button >DETAIL</button>
+                          <button>APPLY</button>
+                    </td>
+                </tr>
+                
+                
+                
+            
+            </table>
+        </div>
+          </div>
+   
 
     </div>
 
     <br> <br>
-    <hr>
-
+     <hr>
+     
     <div class="links">
        <p>
         

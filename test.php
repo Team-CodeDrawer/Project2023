@@ -12,7 +12,7 @@ else{
     echo "connected";
 }
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    $pic= $_POST['imageInput'];
+    $pic= $_FILES['imageInput'];
     $sql = "INSERT INTO photo values ('$pic');";
     $result = mysqli_query($conn,$sql);
     if($result)
@@ -54,7 +54,27 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         }
         $row = mysqli_fetch_assoc($result);
         $image2 = $row['image'];
-        echo '<img src="'.$image2.'"alt="">';
+        // echo '<img src="'.$image2.'"alt="">';
+        // echo "<img src='data:image;base64,". base64_encode($row["image"])";
+        // echo "<img src='images/{$fetch['image']}' width='100px'>";
+//         header("Content-type: image/jpeg");
+// echo $image2;
+// echo "<img src="data:image/jpeg;base64,<?php echo base64_encode( $image_data );
+// echo 'img src=".'htmlspecialchars($row['filename'])'." width="175" height="200" />";
+
+
+        // echo '<img src="$image2" alt="">';
+        // echo "<td>" . "<img src=".$row['image'].' width=100px height="100px">' . "</td>";
+
+    //     while ($row = mysqli_fetch_array($img)) {     
+		
+    //         echo "<img src='images/".$row['image']."' >";   
+        
+    //   } 
+
+    // echo '<img src="data:image/jpeg;base64,'.base64_encode($image2).'" height="200" width="200"/>';
+
+    // <img src="upload/<?=$row['image']?>" alt="">
     ?>
 
 </body>
