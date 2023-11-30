@@ -1,16 +1,4 @@
 <?php
-// $servername = "localhost";
-// $username = "root";
-// $password = "cookie";
-// $database = "Project";
-// $conn = mysqli_connect($servername,$username,$password,$database);
-// if(!$conn)
-// {
-//     die(mysqli_connect_errno()."not connected");
-// }
-// else{
-//     echo "connected";
-// }
 
 include 'partials/dbconnect.php';
 $Showalert = false;
@@ -56,7 +44,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
         *{
             margin: 0px;
@@ -158,7 +147,22 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/feedback.html" onclick="closeSidebar()">Feedack</a> 
         </nav> 
     </div>
-
+    <?php
+        if($Showalert)
+        {
+            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congrats!!</strong> Registration Successful.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+        else
+        {
+            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Oops!!</strong> Please Enter same Password.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+        ?>
     <h1>Register</h1>
 
     <div class="border">
@@ -178,24 +182,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <!-- <p><button  class="padd" type="submit" >REGISTER</button></p> -->
         <input type="submit" value="submit"> 
         
-        <?php
-        if($Showalert)
-        {
-            echo '<h1>Registration Successful</h1>';
-        }
-        else
-        {
-            echo '<h1>Enter the same Password</h1>';
-        }
-        // if($ShowError)
-        // {
-        //     echo '<h1>Email already Exists</h1>';
-        // }
-        // else
-        // {
-        //     echo '<h1>Enter the same Password</h1>';
-        // }
-        ?>
+        
       </form>
 
     </div>
