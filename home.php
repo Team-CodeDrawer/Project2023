@@ -69,7 +69,7 @@
             <a class="MenuItem" href="/PRMS/PROJECT2023/home.php">Home</a>
             <a class="MenuItem" href="/PRMS/PROJECT2023/about.php">About us</a>
             <a class="MenuItem" href="#allCompany">All Company</a>
-            <a class="MenuItem" href="#jobDetail">Job detail</a>
+            <a class="MenuItem" href="student.php">Student detail</a>
             <a class="MenuItem" href="/PRMS/PROJECT2023/login.php">Login</a>
             <a class="MenuItem" href="/PRMS/PROJECT2023/register.php">Register</a>
             <a class="MenuItem" href="/PRMS/PROJECT2023/feedback.php">Feedack</a>

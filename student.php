@@ -1,3 +1,7 @@
+<?php
+include 'partials/dbconnect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,26 +32,53 @@
     </style>
 </head>
 <body>
+<?php
+    $sql = "SELECT * from student;";
+    $result = mysqli_query($conn,$sql);
+    if($result)
+    {
+        // echo "Successful";
+    }
+    else
+    {
+        echo "Failed".mysqli_error($conn);
+    }
+    $row = mysqli_fetch_assoc($result);
+    // while($row = mysqli_fetch_assoc($result)){
+        // $email = $row['email'];
+        // $phone = $row['phone'];
+        // $address = $row['address'];
+        // }
+        ?>
     <div class="container">
         <h1 align="center">Student details</h1>
-        <table>
-            <tr>
-                <th>Name:</th>
-                <td>Ashutosh Kumar</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>ashutosh1234@gmail.com</td>
-            </tr>
-            <tr>
-                <th>Phone:</th>
-                <td>1234562334</td>
-            </tr>
-            <tr>
-                <th>Address:</th>
-                <td>Haryana</td>
-            </tr>
-        </table>
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            $sname = $row['sname'];
+            $email = $row['email'];
+            $phone = $row['phone'];
+            $address = $row['address'];
+        
+        echo '<table>
+        <tr>
+            <th>Name:</th>
+            <td>'.$sname.'</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>'.$email.'</td>
+        </tr>
+        <tr>
+            <th>Phone:</th>
+            <td>'.$phone.'</td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+            <td>'.$address.'</td>
+        </tr>
+    </table>';
+}
+        ?>
     </div>
 </body>
 </html>
