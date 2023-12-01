@@ -14,9 +14,9 @@ include 'partials/dbconnect.php';
         *{
             margin: 0px;
         }
-        .container{
-            margin: auto;
-            padding-left: 300px;
+        .container2{
+            margin: 20px;
+            /* padding-left: 100px; */
         }
         .test{
             background-color: rgb(204, 0, 0);
@@ -72,7 +72,8 @@ include 'partials/dbconnect.php';
         }
 
         table{
-        margin-left: 10PX;
+            margin: 20px;
+        margin-left: 0px;
         border: 2px solid gray;
         width: 100%;
     }
@@ -118,6 +119,24 @@ include 'partials/dbconnect.php';
 </head>
 
 <body>
+<?php
+    $sql = "SELECT * from company;";
+    $result = mysqli_query($conn,$sql);
+    if($result)
+    {
+        // echo "Successful";
+    }
+    else
+    {
+        echo "Failed".mysqli_error($conn);
+    }
+    $row = mysqli_fetch_assoc($result);
+    // while($row = mysqli_fetch_assoc($result)){
+        // $email = $row['email'];
+        // $phone = $row['phone'];
+        // $address = $row['address'];
+        // }
+        ?>
     <div class="test">
 
         <div  onclick="openSidebar()" style="color: white;">☰</div>
@@ -141,29 +160,36 @@ include 'partials/dbconnect.php';
         <div>
             <div class="container" >
               <h1>COMPANY DETAIL</h1>
-              <table>
+              <?php
+              while ($row = mysqli_fetch_assoc($result)) {
+                $sname = $row['sname'];
+                $email = $row['email'];
+                $phone = $row['phone'];
+                $address = $row['address'];
+                echo '
+            <div class="container2" >
+
+                <table>
      
                 <!--1-->
                 <tr>
                     <td class="fit gray"  rowspan="5">
-                        <img src="C:\Users\HP\Pictures\Saved Pictures\info.png" alt="Infosys">
+                        <img src="C:\Users\HP\Pictures\Saved Pictures\info.png" alt="'.$sname.'">
                     </td>
             
-                    <td class="pad none"><p style="font-size: 30px;"><b>INFOSYS</b></p></td>
+                    <td class="pad none"><p style="font-size: 30px;"><b>'.$sname.'</b></p></td>
                 </tr>
             
                 <tr>
-                    <td class="pad none"><p>138, Old Mahabalipuram Road,
-                        Sholinganallur, Chennai,
-                        Tamil Nadu – 600119.</p></td>
+                    <td class="pad none"><p>'.$address.'</p></td>
                 </tr>
             
                 <tr>
-                    <td class="pad none"><p>Phone +91 44 2450 9530/9540</p></td>
+                    <td class="pad none"><p>Phone '.$phone.'</p></td>
                 </tr>
             
                 <tr>
-                    <td class="pad none"><p>Email: foundation@infosys.com</p></td>
+                    <td class="pad none"><p>Email: '.$email.'</p></td>
                 </tr>
             
                 <tr>
@@ -171,11 +197,10 @@ include 'partials/dbconnect.php';
                           <button>APPLY</button>
                     </td>
                 </tr>
-                
-                
-                
-            
             </table>
+            </div>';
+              }
+            ?>
         </div>
           </div>
    
