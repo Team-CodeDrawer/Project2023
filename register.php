@@ -54,7 +54,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             background-color: rgb(204, 0, 0);
             padding: 5px;
             border: 10px solid rgb(204, 0, 0);
-            
+            position: fixed;
+            width:100%;
             padding: 5px;
             font-size: 25px;
         }
@@ -123,6 +124,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         input{
             width: 80%;
         }
+
+        .col{
+            background-color:rgb(204, 0, 0);
+            color:white;
+            border:none;
+        }
       
     </style>
 </head>
@@ -138,13 +145,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <nav  style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
 
             <a class="MenuItem" href="javascript:void(0)" onclick="closeSidebar()">Close Menu</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/home.html" onclick="closeSidebar()">Home</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/about.html" onclick="closeSidebar()">About us</a>
-            <a class="MenuItem" href="#allCompany" onclick="closeSidebar()">All Company</a>
-            <a class="MenuItem" href="#jobDetail" onclick="closeSidebar()">Job detail</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/login.html" onclick="closeSidebar()">Login</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/register.html" onclick="closeSidebar()">Register</a>
-            <a class="MenuItem" href="file:///C:/Users/HP/Documents/HTML/rassu/feedback.html" onclick="closeSidebar()">Feedack</a> 
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/home.php">Home</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/about.php">About us</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/company.php">All Company</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/student.php">Student detail</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/login.php">Login</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/register.php">Register</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/feedback.php">Feedack</a>
         </nav> 
     </div>
     <?php
@@ -180,7 +187,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <input  class="padd botmar" type="password" placeholder="Password" required name="tpassword" id="tpassword" >
         <input  class="padd botmar" type="password" placeholder="Verify Password" required name="vpassword" id="vpassword">
         <!-- <p><button  class="padd" type="submit" >REGISTER</button></p> -->
-        <input type="submit" value="submit"> 
+        <input  class="padd col" type="submit" value="REGISTER" > 
         
         
       </form>

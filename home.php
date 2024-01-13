@@ -13,7 +13,8 @@
             background-color: rgb(204, 0, 0);
             padding: 5px;
             border: 10px solidr rgb(204, 0, 0);
-            
+            position: fixed;
+            width:100%;
             padding: 5px;
             font-size: 25px;
         }
@@ -66,13 +67,13 @@
         <nav  style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
 
             <a class="MenuItem" href="javascript:void(0)">Close Menu</a>
-            <a class="MenuItem" href="/PRMS/PROJECT2023/home.php">Home</a>
-            <a class="MenuItem" href="/PRMS/PROJECT2023/about.php">About us</a>
-            <a class="MenuItem" href="#allCompany">All Company</a>
-            <a class="MenuItem" href="student.php">Student detail</a>
-            <a class="MenuItem" href="/PRMS/PROJECT2023/login.php">Login</a>
-            <a class="MenuItem" href="/PRMS/PROJECT2023/register.php">Register</a>
-            <a class="MenuItem" href="/PRMS/PROJECT2023/feedback.php">Feedack</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/home.php">Home</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/about.php">About us</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/company.php">All Company</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/student.php">Student detail</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/login.php">Login</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/register.php">Register</a>
+            <a class="MenuItem" href="/PRMS/PROJECT2023/PROJECT2023/feedback.php">Feedack</a>
         
         </nav>
         <img class="bgimg" src="mmdu.jpg" alt="Placement">
